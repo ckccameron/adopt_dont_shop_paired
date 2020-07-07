@@ -28,18 +28,17 @@ RSpec.describe 'As a visitor' do
                         shelter_id: shelter_2.id)
 
       review_1 = Review.create!(title: "Great Shelter",
-                                rating: 4,
-                                content: "All the pets looked really happy")
-
+                        rating: 4,
+                        content: "All the pets looked really happy",
+                        shelter_id: shelter_1.id)
 
       visit "/shelters/#{shelter_1.id}"
 
-      expect(page).to have_content (pet_1.name)
-      expect(page).to have_content (shelter_1.name)
-      expect(page).to have_content (pet_1.sex)
-      expect(page).to have_content (pet_2.name)
-      expect(page).to have_content (shelter_2.name)
-      expect(page).to have_content (pet_2.sex)
+      expect(page).to_not have_content(pet_1.name)
+      expect(page).to have_content(shelter_1.name)
+      expect(page).to_not have_content(pet_2.name)
+      expect(page).to_not have_content(shelter_2.name)
+
 
       expect(page).to have_content(review_1.title)
       expect(page).to have_content(review_1.rating)

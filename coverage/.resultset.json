@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/environment.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -10,7 +10,7 @@
           1
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/application.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/application.rb": {
         "lines": [
           1,
           null,
@@ -45,14 +45,14 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/boot.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/boot.rb": {
         "lines": [
           1,
           null,
           1
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/environments/test.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -98,7 +98,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/initializers/application_controller_renderer.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -110,7 +110,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/initializers/assets.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -128,7 +128,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/initializers/backtrace_silencers.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -139,7 +139,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/initializers/cookies_serializer.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -148,7 +148,7 @@
           1
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/initializers/filter_parameter_logging.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -156,7 +156,7 @@
           1
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/initializers/inflections.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -176,7 +176,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/initializers/mime_types.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -184,7 +184,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/initializers/wrap_parameters.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -202,7 +202,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/config/routes.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/config/routes.rb": {
         "lines": [
           1,
           null,
@@ -228,195 +228,13 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/app/helpers/application_helper.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/helpers/application_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/pets/delete_pet_index_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/pets/delete_pet_show_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/pets/index_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/pets/show_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/pets/delete_pet_index_spec.rb": {
         "lines": [
           null,
           null,
@@ -455,8 +273,49 @@
           null,
           1,
           1,
+          null,
+          1,
+          null,
           1,
           1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
           1,
           1,
           1,
@@ -465,7 +324,53 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/pets/update_pet_index_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/pets/delete_pet_show_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/pets/index_spec.rb": {
         "lines": [
           null,
           null,
@@ -474,54 +379,11 @@
           1,
           1,
           1,
-          1,
           null,
           1,
           null,
           null,
           null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
           null,
           1,
           null,
@@ -543,33 +405,67 @@
           null,
           1,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null,
           1,
           1,
           1,
           1,
           1,
-          null,
           1,
-          1,
-          1,
-          1,
-          null,
           null,
           null,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/pets/update_pet_show_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/pets/show_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/pets/update_pet_index_spec.rb": {
         "lines": [
           null,
           null,
@@ -613,6 +509,110 @@
           1,
           1,
           1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/pets/update_pet_show_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
           null,
           null,
           null,
@@ -629,7 +629,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/reviews/reviews_index_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/reviews/reviews_on_shelter_show_spec.rb": {
         "lines": [
           1,
           null,
@@ -667,22 +667,21 @@
           null,
           1,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
           null,
-          0,
-          0,
-          0,
+          null,
+          1,
+          1,
+          1,
           null,
           null,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/shelters/delete_from_index_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/shelters/delete_from_index_spec.rb": {
         "lines": [
           1,
           null,
@@ -713,7 +712,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/shelters/delete_from_show_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/shelters/delete_from_show_spec.rb": {
         "lines": [
           null,
           null,
@@ -735,18 +734,18 @@
           null,
           null,
           1,
-          0,
-          0,
+          1,
+          1,
           null,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
           null,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/shelters/edit_from_index_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/shelters/edit_from_index_spec.rb": {
         "lines": [
           null,
           null,
@@ -788,19 +787,19 @@
           null,
           1,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/shelters/edit_from_show_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/shelters/edit_from_show_spec.rb": {
         "lines": [
           1,
           null,
@@ -821,38 +820,38 @@
           null,
           null,
           1,
-          0,
+          1,
           null,
-          0,
+          1,
           null,
-          0,
+          1,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
-          0,
+          1,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/shelters/index_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/shelters/index_spec.rb": {
         "lines": [
           null,
           null,
@@ -882,7 +881,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/shelters/links_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/shelters/links_spec.rb": {
         "lines": [
           null,
           null,
@@ -913,8 +912,8 @@
           null,
           null,
           1,
-          0,
-          0,
+          1,
+          1,
           null,
           null,
           1,
@@ -1031,7 +1030,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/shelters/new_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/shelters/new_spec.rb": {
         "lines": [
           1,
           null,
@@ -1069,7 +1068,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/shelters/pets_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/shelters/pets_spec.rb": {
         "lines": [
           1,
           null,
@@ -1122,7 +1121,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/features/shelters/show_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/features/shelters/show_spec.rb": {
         "lines": [
           null,
           1,
@@ -1144,16 +1143,16 @@
           null,
           1,
           null,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
+          1,
           null,
           null,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/models/pet_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/models/pet_spec.rb": {
         "lines": [
           null,
           null,
@@ -1169,7 +1168,7 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/app/models/pet.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/models/pet.rb": {
         "lines": [
           1,
           1,
@@ -1177,14 +1176,32 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/app/models/application_record.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/models/application_record.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/spec/models/shelter_spec.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/models/review_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null
+        ]
+      },
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/models/review.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/spec/models/shelter_spec.rb": {
         "lines": [
           null,
           null,
@@ -1195,18 +1212,22 @@
           1,
           2,
           null,
+          1,
+          2,
+          null,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/app/models/shelter.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/models/shelter.rb": {
         "lines": [
           1,
           1,
           1,
+          1,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/app/controllers/pets_controller.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/controllers/pets_controller.rb": {
         "lines": [
           1,
           null,
@@ -1256,53 +1277,46 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/app/controllers/application_controller.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/controllers/application_controller.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/app/models/review.rb": {
-        "lines": [
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/litowhite/turing/mod2/projects/adopt/adopt_dont_shop_2005/app/controllers/shelters_controller.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/controllers/shelters_controller.rb": {
         "lines": [
           1,
           null,
           1,
-          16,
+          18,
+          null,
+          null,
+          1,
+          7,
+          null,
+          null,
+          1,
           null,
           null,
           1,
           6,
+          6,
           null,
           null,
           1,
-          null,
-          null,
-          1,
-          5,
-          5,
+          3,
           null,
           null,
           1,
           2,
+          2,
+          2,
           null,
           null,
           1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          1,
+          2,
+          2,
           null,
           null,
           null,
@@ -1310,12 +1324,12 @@
           1,
           null,
           1,
-          6,
+          8,
           null,
           null
         ]
       }
     },
-    "timestamp": 1594080500
+    "timestamp": 1594089099
   }
 }
