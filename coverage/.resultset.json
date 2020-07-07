@@ -1243,11 +1243,19 @@
           1,
           2,
           null,
+          1,
+          2,
+          2,
+          2,
+          null,
           null
         ]
       },
       "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/models/review.rb": {
         "lines": [
+          1,
+          1,
+          1,
           1,
           1,
           null
@@ -1405,6 +1413,6 @@
         ]
       }
     },
-    "timestamp": 1594144084
+    "timestamp": 1594145305
   }
 }
