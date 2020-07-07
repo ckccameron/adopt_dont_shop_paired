@@ -2,30 +2,21 @@ require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
   describe 'when I visit the shelter show page' do
-    it 'shows a list of all reviews for that shelter' do
+    describe 'I can follow a link to create a new review' do
+      it 'then takes me to a form to fill out the information' do
 
       shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                         address: "3301 Navajo Street",
                         city: "Denver",
                         state: "CO",
                         zip: 80021)
-      shelter_2 = Shelter.create!(name: "Monterey Animal Shelter",
-                        address: "2520 Crimson Road",
-                        city: "Monterey",
-                        state: "CA",
-                        zip: 35872)
+
       pet_1 =  Pet.create!(name: "Winnie",
                         approximate_age: 3,
                         sex: "Female",
                         image: "https://imgur.com/r/puppies/cYqJGNo",
                         adoption_status: "Available",
                         shelter_id: shelter_1.id)
-      pet_2 =  Pet.create!(name: "Sir Maximus",
-                        approximate_age: 1,
-                        sex: "Male",
-                        image: "https://imgur.com/r/puppies/JGDU9mi",
-                        adoption_status: "Available",
-                        shelter_id: shelter_2.id)
 
       review_1 = Review.create!(title: "Great Shelter",
                         rating: 4,
@@ -34,15 +25,21 @@ RSpec.describe 'As a visitor' do
 
       visit "/shelters/#{shelter_1.id}"
 
-      expect(page).to_not have_content(pet_1.name)
       expect(page).to have_content(shelter_1.name)
-      expect(page).to_not have_content(pet_2.name)
-      expect(page).to_not have_content(shelter_2.name)
+      click_on 'Write a Review'
+      expect(current_path).to eq("/shelters/#{shelter_1.id}/reviews/new")
+      fill_in :title, with: "Nice Shelter"
+      #fill_in :rating, with: 4
+      select 4
+      fill_in :content, with: "Nice shelter, all the pets looked happy"
+      fill_in :image, with: "https://imgur.com/r/puppies/NkpLnVJ"
+      click_on "Submit Review"
 
-
-      expect(page).to have_content(review_1.title)
-      expect(page).to have_content(review_1.rating)
-      expect(page).to have_content(review_1.content)
+      expect(current_path).to eq("/shelters/#{shelter_1.id}")
+      expect(page).to have_content("Nice Shelter")
+      expect(page).to have_content("Nice shelter, all the pets looked happy")
+      #add image
+    end
     end
   end
 end

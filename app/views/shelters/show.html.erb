@@ -11,6 +11,8 @@ Zip: <%= @shelter.zip %><br>
 <br>
 <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
 
+<%= link_to "Write a Review", "/shelters/#{@shelter.id}/reviews/new", {:shelterid => @shelter.id} %>
+
 <p>
   <% @shelter.reviews.each do |review| %>
   Title: <%= review.title %><br>
