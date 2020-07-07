@@ -11,10 +11,13 @@ Zip: <%= @shelter.zip %><br>
 <br>
 <%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
 
+<%= link_to "Write a Review", "/shelters/#{@shelter.id}/reviews/new", {:shelterid => @shelter.id} %>
+
 <p>
-  <% @shelters.reviews.each do |review| %>
+  <% @shelter.reviews.each do |review| %>
   Title: <%= review.title %><br>
   Rating: <%= review.rating %><br>
   Content: <%= review.content %><br>
   <img src="<%= review.image %>" alt="<%= @shelter.name %>">>
+  <% end %>
 </p>
