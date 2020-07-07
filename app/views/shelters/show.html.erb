@@ -1,0 +1,20 @@
+<p><%= button_to("List of Shelters", "/shelters") %></p>
+
+<h1><%= @shelter.name %></h1>
+
+<p>Address: <%= @shelter.address %><br>
+City: <%= @shelter.city %><br>
+State: <%= @shelter.state %><br>
+Zip: <%= @shelter.zip %><br>
+<%= link_to "See the pets at #{@shelter.name}!!", "/shelters/#{@shelter.id}/pets" %></p>
+<%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
+<br>
+<%= link_to "Delete Shelter", "/shelters/#{@shelter.id}", method: :delete %>
+
+<p>
+  <% @shelters.reviews.each do |review| %>
+  Title: <%= review.title %><br>
+  Rating: <%= review.rating %><br>
+  Content: <%= review.content %><br>
+  <img src="<%= review.image %>" alt="<%= @shelter.name %>">>
+</p>

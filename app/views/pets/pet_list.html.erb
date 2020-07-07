@@ -1,0 +1,19 @@
+<p><%= button_to("List of Shelters", "/shelters") %></p>
+
+<h1>Pets</h1>
+<p>Pets Available at <%= link_to("#{@shelter_identifier.name}","shelters/#{@shelter_identifier.id}") %>: <%= "#{@count}" %></p>
+<% @shelter_pets.each do |pet| %>
+  <h3><%= link_to("#{pet.name}", "/pets/#{pet.id}") %></h3>
+  <p><img src="<%= pet.image %>" width='30%' alt="<%= pet.name %>"> <br>
+    Age: <%= pet.approximate_age %> <br>
+  Sex: <%= pet.sex %> <br>
+  Description: <%= pet.description %> <br>
+  Adoptable? <%= pet.adoption_status %> </p>
+
+  <%= link_to "Update #{pet.name}", "/pets/#{pet.id}/edit" %>
+  <br>
+  <%= link_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>
+  <br>
+<% end %>
+  <br>
+<%= link_to "Create Pet", "/shelters/#{@shelter_identifier.id}/pets/new", {:shelterid => @shelter_identifier.id} %>
