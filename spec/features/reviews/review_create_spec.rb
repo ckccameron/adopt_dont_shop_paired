@@ -29,7 +29,6 @@ RSpec.describe 'As a visitor' do
       click_on 'Write a Review'
       expect(current_path).to eq("/shelters/#{shelter_1.id}/reviews/new")
       fill_in :title, with: "Nice Shelter"
-      #fill_in :rating, with: 4
       select 4
       fill_in :content, with: "Nice shelter, all the pets looked happy"
       fill_in :image, with: "https://imgur.com/r/puppies/NkpLnVJ"
@@ -38,7 +37,7 @@ RSpec.describe 'As a visitor' do
       expect(current_path).to eq("/shelters/#{shelter_1.id}")
       expect(page).to have_content("Nice Shelter")
       expect(page).to have_content("Nice shelter, all the pets looked happy")
-      #add image
+      expect(page).to have_content(review_1.image)
     end
     end
   end

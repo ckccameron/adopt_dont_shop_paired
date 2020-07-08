@@ -8,7 +8,12 @@ class ReviewsController < ApplicationController
     shelter = Shelter.find(params[:id])
     new_review = Review.create(review_params)
     shelter.reviews << new_review
-    redirect_to("/shelters/#{new_review.shelter_id}")
+    if new_review.valid?
+      redirect_to("/shelters/#{new_review.shelter_id}")
+    else
+      flash[:errors] = "Please correctly fill out the form"
+      redirect_to("/shelters/#{shelter.id}/reviews/new")
+    end
   end
 
   def edit
