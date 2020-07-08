@@ -4,8 +4,7 @@
  <%= label_tag :title %>
  <%= text_field_tag :title, nil, value: "#{@review.title}" %><br>
  <%= label_tag :rating %>
- <p>Enter a rating between 1 and 5:</p>
- <%= text_field_tag :rating, nil, value: "#{@review.rating}" %><br>
+ <%= select_tag :rating, options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5]]) %><br>
  <%= label_tag :content %>
  <%= text_field_tag :content, nil, value: "#{@review.content}" %><br>
  <%= label_tag :image %>

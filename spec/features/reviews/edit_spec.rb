@@ -19,7 +19,7 @@ RSpec.describe "when visiting a shelter's show page" do
     expect(current_path).to eq("/shelters/#{shelter_1.id}/reviews/#{review_1.id}/edit")
 
     fill_in :title, with: "Syke - This shelter is beat!"
-    fill_in :rating, with: 1
+    select 1
     fill_in :content, with: "These poor animals. Wish I could adopt them all!"
 
     click_on "Update Review"
