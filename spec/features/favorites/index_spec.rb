@@ -33,7 +33,7 @@ RSpec.describe "favorite a pet" do
 
   it "allows user to click on favorites indicator to go to favorites" do
     visit "/favorites"
-    click_on "Favorites: 1"
+    click_on "Favorites"
     expect(current_path). to eq("/favorites")
   end
 end
