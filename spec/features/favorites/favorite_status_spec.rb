@@ -26,7 +26,7 @@ RSpec.describe 'As a visitor' do
 
       expect(current_path).to eq("/pets/#{pet_1.id}")
       expect(page).to have_content("Favorites Count: 1")
-      expect(page).to have_content("Pet has been added to your favorites!")
+      expect(page).to have_content("#{pet_1.name} has been added to your Favorites")
     end
     end
   end
