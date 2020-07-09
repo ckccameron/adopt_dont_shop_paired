@@ -311,3 +311,822 @@ Migrating to AddFavoriteStatusToPets (20200709023409)
   [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5022504912090105405)[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-07-09 07:07:54 -0700
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/litowhite/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/litowhite/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 16ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/shelters" for ::1 at 2020-07-09 07:07:59 -0700
+Processing by SheltersController#index as HTML
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  Rendering shelters/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.7ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelters/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 200ms (Views: 153.6ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/shelters/1" for ::1 at 2020-07-09 07:30:38 -0700
+Processing by SheltersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering shelters/show.html.erb within layouts/application
+  [1m[36mReview Load (3.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendered shelters/show.html.erb within layouts/application (42.5ms)
+Completed 200 OK in 98ms (Views: 54.4ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/shelters/1/pets" for ::1 at 2020-07-09 07:30:42 -0700
+Processing by PetsController#pet_list as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mShelter Load (0.9ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendering pets/pet_list.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendered pets/pet_list.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 52ms (Views: 31.8ms | ActiveRecord: 10.7ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 07:30:45 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (1.6ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 38ms (Views: 27.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 07:57:25 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 40ms (ActiveRecord: 5.5ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"update", :controller=>"Favorites", :id=>"1"}):
+    12: 
+    13: <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+    14: 
+    15: <%= button_to "Add to Favorites", {action: "update", controller: "Favorites"}, method: :patch %>
+  
+app/views/pets/show.html.erb:15:in `_app_views_pets_show_html_erb__2186836300523444157_70105399038860'
+Started GET "/pets/1" for ::1 at 2020-07-09 07:58:20 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 86ms (Views: 80.5ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 07:58:23 -0700
+  
+ActionController::RoutingError (uninitialized constant FavoritesController):
+  
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.7) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.7) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.7) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 07:59:18 -0700
+  
+ActionController::RoutingError (uninitialized constant FavoritesController):
+  
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `constantize'
+actionpack (5.1.7) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.7) lib/action_dispatch/http/request.rb:78:in `controller_class'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.7) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/pets/1" for ::1 at 2020-07-09 07:59:23 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"update", :controller=>"pets/favorites", :id=>"1"}):
+    12: 
+    13: <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+    14: 
+    15: <%= button_to "Add to Favorites", {action: "update", controller: "pets/favorites"},  method: :patch %>
+  
+app/views/pets/show.html.erb:15:in `_app_views_pets_show_html_erb__2186836300523444157_70105481314120'
+Started GET "/shelters/1/pets" for ::1 at 2020-07-09 08:00:15 -0700
+Processing by PetsController#pet_list as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendering pets/pet_list.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendered pets/pet_list.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 46ms (Views: 25.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:00:19 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (4.4ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"update", :controller=>"pets/favorites", :id=>"1"}):
+    12: 
+    13: <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+    14: 
+    15: <%= button_to "Add to Favorites", {action: "update", controller: "pets/favorites"},  method: :patch %>
+  
+app/views/pets/show.html.erb:15:in `_app_views_pets_show_html_erb__2186836300523444157_70105481821240'
+Started GET "/pets/1" for ::1 at 2020-07-09 08:00:33 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 37ms (Views: 29.3ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 08:00:35 -0700
+  
+LoadError (Unable to autoload constant FavoritesController, expected /Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/controllers/favorites_controller.rb to define it):
+  
+activesupport (5.1.7) lib/active_support/dependencies.rb:512:in `load_missing_constant'
+activesupport (5.1.7) lib/active_support/dependencies.rb:202:in `const_missing'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:269:in `const_get'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:269:in `block in constantize'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `each'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `inject'
+activesupport (5.1.7) lib/active_support/inflector/methods.rb:267:in `constantize'
+activesupport (5.1.7) lib/active_support/dependencies.rb:583:in `get'
+activesupport (5.1.7) lib/active_support/dependencies.rb:614:in `constantize'
+actionpack (5.1.7) lib/action_dispatch/http/request.rb:85:in `controller_class_for'
+actionpack (5.1.7) lib/action_dispatch/http/parameters.rb:99:in `binary_params_for?'
+actionpack (5.1.7) lib/action_dispatch/http/parameters.rb:90:in `set_binary_encoding'
+actionpack (5.1.7) lib/action_dispatch/http/parameters.rb:67:in `path_parameters='
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.7) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.7) lib/action_dispatch/routing/route_set.rb:844:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+rack (2.2.3) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.3) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.7) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.7) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.7) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/pets/1" for ::1 at 2020-07-09 08:01:24 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 34ms (Views: 18.8ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 08:01:27 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"ZbaUhZpX4es4YhG64q7+NuH/x/BA1LAk1hs4BAReSq7pwepf5n94sZbuF+NTZ/gqol9w2+q/+2mBNQFl1MsDFQ==", "id"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "t"], ["updated_at", "2020-07-09 15:01:27.540604"], ["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 36ms (ActiveRecord: 13.8ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:01:27 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 32ms (Views: 24.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:03:21 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 36ms (Views: 20.8ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 08:03:26 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"0EiaRUkd8s5XWU2TG1foofVsqI1rfVsPQtq6WOQ/cHJcP+SfNTVrlPnVS8qqnu69tswfpsEWEEIV9IM5NKo5yQ==", "id"=>"1"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.8ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "f"], ["updated_at", "2020-07-09 15:03:26.487938"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 33ms (ActiveRecord: 10.6ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:03:26 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 29ms (Views: 24.0ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 08:03:31 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"CvYHFtLUNVH4skKdSubYeCZw1K5zmkloAw5hS1YKVqGGgXnMrvysC1Y+RMT7L95kZdBjhdnxAiVUIFgqhp8fGg==", "id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (1.1ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.6ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "t"], ["updated_at", "2020-07-09 15:03:31.054580"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 17ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:03:31 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 30ms (Views: 24.5ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 08:03:35 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"u4mqh9SxO8nYH8fROCb4SJSjoCMqAoXWGmmveP9elvQ3/tRdqJmik3aTwYiJ7/5U1wMXCIBpzptNR5YZL8vfTw==", "id"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.5ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "f"], ["updated_at", "2020-07-09 15:03:35.998686"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 21ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:03:36 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 36ms (Views: 30.3ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 08:03:36 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"0RwfRwWSkZxE8Z00FqHGiNdjfry2uVnlJGuSglmCH5Fda2GdeboIxup9m22naMCUlMPJlxzSEqhzRavjiRdWKg==", "id"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.9ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.6ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "t"], ["updated_at", "2020-07-09 15:03:36.678586"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 11ms (ActiveRecord: 3.4ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:03:36 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 37ms (Views: 31.9ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 08:03:37 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"weom5rChHgkY+VemYqYsLFTm8mMwznfMlOqYRBEYJItNnVg8zImHU7Z1Uf/TbyowF0ZFSJqlPIHDxKElwY1tMA==", "id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "f"], ["updated_at", "2020-07-09 15:03:37.127748"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 6ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:03:37 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 23ms (Views: 18.5ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 08:03:37 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"PJ9d6mY7VfMKYFc92rBJKR2sW0cNNEF+0F+cN/BRYSSw6CMwGhPMqaTsUWRreU81XgzsbKdfCjOHcaVWIMQonw==", "id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "t"], ["updated_at", "2020-07-09 15:03:37.338328"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 30ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:03:37 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 24ms (Views: 19.8ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 08:03:37 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"Q6wRX5awkHLXhcI4h8Bzl2jq1sgXLqAreP9lLJo0SubP22+F6pgJKHkJxGE2CXWLK0ph471F62Yv0VxNSqEDXQ==", "id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "f"], ["updated_at", "2020-07-09 15:03:37.663970"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 7ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:03:37 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 30ms (Views: 26.4ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 08:03:38 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"5bMSqPInyQeEJZ1sc5UfBjIUS17OPjiBavsg2COrmEppxGxyjg9QXSqpmzXCXBkacbT8dWRVc8w91Rm58z7R8Q==", "id"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "t"], ["updated_at", "2020-07-09 15:03:38.360808"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 08:03:38 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 18.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-07-09 11:32:31 -0700
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/litowhite/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/litowhite/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (3.4ms)
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/shelters" for ::1 at 2020-07-09 11:32:38 -0700
+Processing by SheltersController#index as HTML
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  Rendering shelters/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.6ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelters/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 232ms (Views: 186.5ms | ActiveRecord: 21.6ms)
+
+
+Started GET "/shelters/1" for ::1 at 2020-07-09 11:32:42 -0700
+Processing by SheltersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mShelter Load (0.6ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering shelters/show.html.erb within layouts/application
+  [1m[36mReview Load (1.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendered shelters/show.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 61ms (Views: 46.0ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/shelters/1/pets" for ::1 at 2020-07-09 11:32:44 -0700
+Processing by PetsController#pet_list as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendering pets/pet_list.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendered pets/pet_list.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 37ms (Views: 27.2ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 11:32:50 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 25ms (Views: 17.4ms | ActiveRecord: 2.3ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 11:32:52 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"BlCMYjbrJxXnD3Km4ndpeIHqRMPkyh1pBEdHVMHAqAOKJ/K4SsO+T0mDdP9Tvm9kwkrz6E6hViRTaX41EVXhuA==", "id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "f"], ["updated_at", "2020-07-09 18:32:52.563526"], ["id", 1]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 13ms (ActiveRecord: 5.6ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 11:32:52 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 11:33:00 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"C5Y/3cpWhIbn1ArseEf/bv2eAT/B6zMnoIT2Q+sgpY+H4UEHtn4d3ElYDLXJjvlyvj62FGuAeGr3qs8iO7XsNA==", "id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "t"], ["updated_at", "2020-07-09 18:33:00.190398"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 7ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 11:33:00 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 11:33:02 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"Q1jVku1d3o+BA8sO4oLpJBVM5EEDg6qrCotlnmhQba7PL6tIkXVH1S+PzVdTS+84VuxTaqno4eZdpVz/uMUkFQ==", "id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.5ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "f"], ["updated_at", "2020-07-09 18:33:02.190571"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 7ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 11:33:02 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 11:33:03 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"tuAK3kMUZheMbaNwn6Vlt6lLaCsu59Pfa9WUkIXNfMU6l3QEPzz/TSLhpSkubGOr6uvfAISMmJI8+63xVVg1fg==", "id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "t"], ["updated_at", "2020-07-09 18:33:03.573029"], ["id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 7ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 11:33:03 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 19ms (Views: 14.9ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 11:33:04 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"TGDrpLx+3xTcf7NZ2N+nIq12ujbV02QICcJhurE9Mb/AF5V+wFZGTnLztQBpFqE+7tYNHX+4L0Ve7FjbYah4BA==", "id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "f"], ["updated_at", "2020-07-09 18:33:04.682340"], ["id", 1]]
+  [1m[35m (3.7ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 31ms (ActiveRecord: 6.0ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 11:33:04 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 26ms (Views: 20.7ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 11:35:14 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"To1TT89gOCBGSFogaJQC2mgVAXReie6MPqj9XbLxi+XC+i2Vs0iheujEXHnZXQTGK7W2X/TipcFphsQ8YmTCXg==", "id"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "t"], ["updated_at", "2020-07-09 18:35:14.799196"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 41ms (ActiveRecord: 12.3ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 11:35:14 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 23ms (Views: 18.7ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 11:35:15 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"SA8ivd6keVFoNPaRSvdVZyQ+eD+VYydAxGZVsmcKHjbEeFxnoozgC8a48Mj7PlN7Z57PFD8IbA2TSGzTt59XjQ==", "id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.5ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "f"], ["updated_at", "2020-07-09 18:35:15.967019"], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 11:35:15 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 22ms (Views: 17.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 11:35:19 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 27ms (Views: 20.8ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/pets/1/favorites" for ::1 at 2020-07-09 11:35:22 -0700
+Processing by Pets::FavoritesController#update as HTML
+  Parameters: {"authenticity_token"=>"M0Fk9/GWcfvoPVtN1LhZFxBJaw3udd73HLDREILp5X2/Nhotjb7ooUaxXRRlcV8LU+ncJkQelbpLnuhxUnysxg==", "id"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "pets" SET "favorite_status" = $1, "updated_at" = $2 WHERE "pets"."id" = $3[0m  [["favorite_status", "t"], ["updated_at", "2020-07-09 18:35:22.238297"], ["id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/pets/1
+Completed 302 Found in 8ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/pets/1" for ::1 at 2020-07-09 11:35:22 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 26ms (Views: 22.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/shelters" for ::1 at 2020-07-09 11:35:25 -0700
+Processing by SheltersController#create as HTML
+  Parameters: {"authenticity_token"=>"wYj1LlsiQQ9mcthmypros59rctatuyRJ6TwVi+xNvXxN/4v0JwrYVcj+3j97U+6v3MvF/QfQbwS+EizqPNj0xw=="}
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+Unpermitted parameter: :authenticity_token
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/shelters
+Completed 302 Found in 13ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/shelters" for ::1 at 2020-07-09 11:35:25 -0700
+Processing by SheltersController#index as HTML
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  Rendering shelters/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.5ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelters/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 28ms (Views: 23.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/shelters/1" for ::1 at 2020-07-09 11:35:27 -0700
+Processing by SheltersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering shelters/show.html.erb within layouts/application
+  [1m[36mReview Load (0.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendered shelters/show.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 47ms (Views: 35.9ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/shelters/1/pets" for ::1 at 2020-07-09 11:35:30 -0700
+Processing by PetsController#pet_list as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."favorite_status" = $1[0m  [["favorite_status", "t"]]
+  [1m[36mShelter Load (0.4ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendering pets/pet_list.html.erb within layouts/application
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendered pets/pet_list.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 33ms (Views: 23.5ms | ActiveRecord: 1.9ms)
+
+
