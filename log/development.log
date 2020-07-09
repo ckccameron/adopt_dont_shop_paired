@@ -186,3 +186,128 @@ Processing by SheltersController#show as HTML
 Completed 200 OK in 20ms (Views: 16.1ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/" for ::1 at 2020-07-08 17:34:02 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/litowhite/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/litowhite/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 20ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/shelters" for ::1 at 2020-07-08 17:34:07 -0700
+Processing by SheltersController#index as HTML
+  Rendering shelters/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.9ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelters/index.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 184ms (Views: 154.4ms | ActiveRecord: 21.4ms)
+
+
+Started POST "/shelters" for ::1 at 2020-07-08 17:34:23 -0700
+Processing by SheltersController#create as HTML
+  Parameters: {"authenticity_token"=>"LcLPiiPZh47Dje3poqRSCkj4mRFSXanrTf4KavrUFh+htbFQX/Ee1G0B67ATbVQWC1guOvg24qYa0DMLKkFfpA=="}
+Unpermitted parameter: :authenticity_token
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/shelters
+Completed 302 Found in 8ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/shelters" for ::1 at 2020-07-08 17:34:23 -0700
+Processing by SheltersController#index as HTML
+  Rendering shelters/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelters/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 17ms (Views: 14.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shelters" for ::1 at 2020-07-08 17:34:28 -0700
+Processing by SheltersController#index as HTML
+  Rendering shelters/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelters/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/pets" for ::1 at 2020-07-08 17:34:33 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (1.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Shelter Load (0.0ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (34.9ms)
+Completed 200 OK in 55ms (Views: 41.2ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/shelters" for ::1 at 2020-07-08 17:34:39 -0700
+Processing by SheltersController#create as HTML
+  Parameters: {"authenticity_token"=>"l9RyaJ+LwaCD62KXow0eYv0NJ0NmHtsc1Vk/VZG4N18bowyy46NY+i1nZM4SxBh+vq2QaMx1kFGCdwY0QS1+5A=="}
+Unpermitted parameter: :authenticity_token
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Redirected to http://localhost:3000/shelters
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/shelters" for ::1 at 2020-07-08 17:34:39 -0700
+Processing by SheltersController#index as HTML
+  Rendering shelters/index.html.erb within layouts/application
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelters/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/shelters/1" for ::1 at 2020-07-08 17:34:43 -0700
+Processing by SheltersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShelter Load (0.7ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering shelters/show.html.erb within layouts/application
+  [1m[36mReview Load (2.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendered shelters/show.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 46ms (Views: 35.3ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/shelters/1/reviews/new" for ::1 at 2020-07-08 17:34:50 -0700
+Processing by ReviewsController#new as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered reviews/new.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 19ms (Views: 14.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/shelters/1/" for ::1 at 2020-07-08 17:35:04 -0700
+Processing by ReviewsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nAS80UXc8jaN8gOsxeVWAA1FBPTXcV0mmp6aI5GD8nwQc8ILOfRrbCN+BfV0LFAcTuWz330aFmvNsKNCQRa7xw==", "title"=>"Nice Shelter", "content"=>"All the Pets Looked Really Happy", "rating"=>"4", "image"=>"", "commit"=>"Submit Review", "id"=>"1"}
+  [1m[36mShelter Load (0.3ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: :utf8, :authenticity_token, :commit, :id
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "reviews" ("title", "rating", "content", "image", "created_at", "updated_at", "shelter_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["title", "Nice Shelter"], ["rating", 4], ["content", "All the Pets Looked Really Happy"], ["image", ""], ["created_at", "2020-07-09 00:35:04.373597"], ["updated_at", "2020-07-09 00:35:04.373597"], ["shelter_id", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/shelters/1
+Completed 302 Found in 22ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/shelters/1" for ::1 at 2020-07-08 17:35:04 -0700
+Processing by SheltersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mShelter Load (0.2ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering shelters/show.html.erb within layouts/application
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."shelter_id" = $1[0m  [["shelter_id", 1]]
+  Rendered shelters/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 0.7ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5022504912090105405)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFavoriteStatusToPets (20200709023409)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.4ms)[0m  [1m[35mALTER TABLE "pets" ADD "favorite_status" boolean DEFAULT 'f'[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200709023409"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5022504912090105405)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
