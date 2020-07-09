@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
   describe 'When I visit a pets show page' do
     describe 'I can click a Favorite button' do
-      xit 'will add the pet to my list of favorites' do
+      it 'will add the pet to my list of favorites' do
 
       shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                         address: "3301 Navajo Street",
@@ -27,7 +27,7 @@ RSpec.describe 'As a visitor' do
       expect(current_path).to eq("/pets/#{pet_1.id}")
       expect(page).to have_content("Favorites Count: 1")
       expect(page).to have_content("Pet has been added to your favorites!")
-    end 
+    end
     end
   end
 end

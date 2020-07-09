@@ -231,10 +231,18 @@
           1,
           1,
           null,
+          1,
+          null,
           null
         ]
       },
       "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/helpers/pets/favorites_helper.rb": {
         "lines": [
           1,
           null
@@ -264,25 +272,10 @@
           null
         ]
       },
-      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/controllers/shelters_controller.rb": {
+      "/Users/litowhite/turing/mod2/projects/adopt_dont_shop_paired/app/controllers/pets_controller.rb": {
         "lines": [
           1,
           null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
           null,
           1,
           0,
@@ -295,16 +288,40 @@
           null,
           null,
           1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
           0,
           0,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
           null,
           null,
           null,
           null,
           1,
-          null,
           1,
           0,
+          null,
           null,
           null
         ]
@@ -318,10 +335,11 @@
           1,
           1,
           null,
+          null,
           null
         ]
       }
     },
-    "timestamp": 1594265109
+    "timestamp": 1594306567
   }
 }

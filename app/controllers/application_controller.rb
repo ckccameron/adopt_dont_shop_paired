@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :add_favorite_count
 
   def add_favorite_count
-    @favorites = Pet.where(favorite_status: true).count
+    @favorites ||= Pet.where(favorite_status: true).count
+
   end
 end

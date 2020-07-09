@@ -1,0 +1,2 @@
+module Pets::FavoritesHelper
+end
