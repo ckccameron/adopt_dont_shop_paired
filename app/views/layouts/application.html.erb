@@ -9,8 +9,14 @@
   </head>
 
   <body>
-    <p>Favorites Count: <%= "#{@favorites}" %>
-    </p>
+    <nav>
+      <ul class = "navbar">
+        <li><%= link_to "View Shelters", "/shelters" %></li>
+        <li><%= link_to "View Pets", "/pets" %></li>
+        <li><%= link_to "Favorites: #{@favorites}", "/favorites" %></li>
+      </ul>
+    </nav>
+
     <% flash.each do |type, message| %>
       <p><%= message %></p>
     <% end %>
