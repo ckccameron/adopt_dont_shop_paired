@@ -51,4 +51,11 @@ RSpec.describe "favorite a pet" do
     expect(page).to have_content(@pet_1.approximate_age)
     expect(page).not_to have_content(@pet_2.name)
   end
+
+  it "uses favorites indicator to link to favorites index" do
+    visit "/favorites"
+
+    click_on "Favorites: 1"
+    expect(current_path).to eq("/favorites")
+  end
 end

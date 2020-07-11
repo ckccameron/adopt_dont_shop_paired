@@ -47,6 +47,6 @@ RSpec.describe 'add pet to favorites' do
       click_on "Add To Favorites"
     end
 
-    expect(page).to have_content("Favorites Count: 2")
+    expect(page).to have_content("Favorites: 2")
   end
 end
