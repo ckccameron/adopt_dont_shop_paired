@@ -2,17 +2,22 @@
 <br>
 <p><%= button_to("Favorites", "/favorites", method: :get) %></p>
 
+<h1><%= @pet.name %></h1>
 
-<h1>This is <%= @pet.name %>!</h1>
-
-<p><img src="<%= @pet.image %>" width='30%' alt="<%= @pet.name %>"> <br>
-    Description: <%= @pet.description %><br>
-    Age: <%= @pet.approximate_age %><br>
-    Gender: <%= @pet.sex %><br>
-    Adoptable? <%= @pet.adoption_status %></p>
-
-<%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %><br>
-
-<%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
-
-<%= button_to "Add to Favorites", {action: "update", controller: "pets/favorites"},  method: :patch %>
+<div class="pets">
+<section class="pets-<%= @pet.id %>">
+  <%= link_to "Add To Favorites", "/favorites/#{@pet.id}", method: :patch %>
+  <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
+  <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+</section>
+</div>
+<br>
+<p><img src="<%= @pet.image %>" width='30%' alt="<%= @pet.name %>"></p>
+<br>
+<p>Description:<%= @pet.description %></p>
+<br>
+<p>Age:<%= @pet.approximate_age %></p>
+<br>
+<p>Gender:<%= @pet.sex %></p>
+<br>
+<p>Adoptable?:<%= @pet.adoption_status %></p>
