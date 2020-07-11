@@ -4,11 +4,14 @@
 
 <% @pets.each do |pet| %>
   <h3><%= link_to("#{pet.name}", "/pets/#{pet.id}") %></h3>
-  <img src="<%= pet.image %>" width='30%' alt="<%= pet.name %>"> <br>
-  <p>Age: <%= pet.approximate_age %><br>
-  Sex: <%= pet.sex %><br>
-  <%= link_to("#{pet.shelter.name}","shelters/#{pet.shelter_id}") %></p>
-
+  <img src="<%= pet.image %>" width='30%' alt="<%= pet.name %>">
+  <br>
+  <p>Age: <%= pet.approximate_age %></p>
+  <br>
+  <p>Sex: <%= pet.sex %></p>
+  <br>
+  <%= link_to("#{pet.shelter.name}","shelters/#{pet.shelter_id}") %>
+  <br>
   <%= link_to "Update #{pet.name}", "/pets/#{pet.id}/edit" %>
   <br>
   <%= link_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>

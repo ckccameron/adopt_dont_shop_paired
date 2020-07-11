@@ -34,7 +34,7 @@ RSpec.describe 'When I visit the pet show page' do
 
     expect(page).to have_content('Tom')
 
-    click_link "Delete Pet"
+    click_on "Delete Pet"
 
     expect(current_path).to eq('/pets')
     expect(page).to_not have_content('Tom')

@@ -43,7 +43,6 @@ RSpec.describe "As a visitor" do
       expect(page).to_not have_content(pet_3.approximate_age)
 
       expect(page).to have_content(pet_1.sex)
-
     end
   end
 end
