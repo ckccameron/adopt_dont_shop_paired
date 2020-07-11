@@ -29,22 +29,26 @@ RSpec.describe "favorite a pet" do
                         shelter_id: @shelter_2.id)
 
     visit "/pets/#{@pet_1.id}"
+
+    within ".pets-#{@pet_1.id}" do
+      click_on "Favorites"
+    end
   end
 
-  it "allows user to click on favorites indicator to go to favorites" do
+  it "displays all pets within favorites" do
     visit "/favorites"
-    click_on "Favorites"
-    expect(current_path). to eq("/favorites")
+
+    expect(page).to have_content(@pet_1.name)
+    expect(page).to have_content(@pet_1.image)
+  end
+
+  it "provides link within favorites from pet's name to pet's show page" do
+    visit "/favorites"
+
+    click_on @pet_1.name
+    expect(current_path).to eq("/pets/#{@pet_1.id}")
+    expect(page).to have_content(@pet_1.name)
+    expect(page).to have_content(@pet_1.approximate_age)
+    expect(page).not_to have_content(@pet_2.name)
   end
 end
-
-
-
-
-# As a visitor
-# When I visit a pet's show page
-# I see a button or link to favorite that pet
-# When I click the button or link
-# I'm taken back to that pet's show page
-# I see a flash message indicating that the pet has been added to my favorites list
-# The favorite indicator in the nav bar has incremented by one
