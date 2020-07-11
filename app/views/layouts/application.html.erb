@@ -13,7 +13,7 @@
       <ul class = "navbar">
         <li><%= link_to "View Shelters", "/shelters" %></li>
         <li><%= link_to "View Pets", "/pets" %></li>
-        <li><%= link_to "Favorites Count: #{@favorites}", "/favorites" %></li>
+        <p class="favorite">Favorites Count: <%= favorite.total_count %></p>
       </ul>
     </nav>
 
