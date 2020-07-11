@@ -4,7 +4,7 @@
 <%= link_to 'Apply to Adopt', "/applications/new" %>
 
 <section class="show">
-  <% favorite.favorite_pets.each do |favorite_pet| %>
+  <% favorite.favorite_pets.each do |pet| %>
     <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
     <br>
     <img src="<%= pet.image %>"</img>
