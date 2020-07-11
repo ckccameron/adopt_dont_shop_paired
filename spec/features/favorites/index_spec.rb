@@ -39,7 +39,7 @@ RSpec.describe "favorite a pet" do
     visit "/favorites"
 
     expect(page).to have_content(@pet_1.name)
-    expect(page).to have_content(@pet_1.image)
+    expect(page).to have_css("img[src='#{@pet_1.image}']")
   end
 
   it "provides link within favorites from pet's name to pet's show page" do
