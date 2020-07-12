@@ -12,12 +12,11 @@ class ApplicationsController < ApplicationController
           applications_params.except(:pet_ids)
         )
         pet.applications << application
-        session[:favorite].delete(pet.id.to_s)
+      #  session[:favorite].delete(pet.id.to_s)
       end
     end
     redirect_to "/favorites", notice: 'Application created succesfully'
   rescue StandardError => e
-    @pets = favorite.favorite_pets
     flash[:notice] = e.message
     redirect_to "/applications/new"
   end
