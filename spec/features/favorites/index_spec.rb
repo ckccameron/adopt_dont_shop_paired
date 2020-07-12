@@ -1,3 +1,5 @@
+#favorite index spec
+
 require 'rails_helper'
 
 RSpec.describe "favorite a pet" do
