@@ -49,4 +49,23 @@ RSpec.describe 'add pet to favorites' do
 
     expect(page).to have_content("Favorites: 2")
   end
+
+  it "won't allow user to favorite the same pet more than once" do
+    visit "/pets/#{@pet_1.id}"
+
+    within ".pets-#{@pet_1.id}" do
+      click_on "Add To Favorites"
+    end
+
+    expect(page).to have_content("Favorites: 1")
+
+    visit "/pets/#{@pet_1.id}"
+
+    within ".pets-#{@pet_1.id}" do
+      click_on "Add To Favorites"
+    end
+
+    expect(page).to have_content("Favorites: 1")
+    expect(page).not_to have_content("Favorites: 2")
+  end
 end
