@@ -22,4 +22,12 @@ class Favorite
       Pet.find(id)
     end
   end
+
+  def favorite_already?(id)
+    if @contents.has_key?(id.to_s) == false
+      add_pet(id)
+    else
+      !add_pet(id)
+    end
+  end
 end
