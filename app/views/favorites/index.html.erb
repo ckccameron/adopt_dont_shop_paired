@@ -11,7 +11,7 @@
   <% if favorite.favorite_pets.empty? %>
     Add Pets To Your Favorites To See Them Here
   <% end %>
-
+<h3>Your Favorites</h3>
   <% @pets.each do |pet| %>
     <% if pet.applications.empty? %>
        <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br>
@@ -22,8 +22,9 @@
  <% end %>
 
 </section>
-
+<br><br>
 <section class="applied_for">
+  <h3>Favorites...with an application!</h3>
   <% @pets.each do |pet| %>
     <% unless pet.applications.empty? %>
       <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>

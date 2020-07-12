@@ -33,7 +33,7 @@ RSpec.describe "favorite index page" do
     visit "/pets/#{@pet_1.id}"
 
     within ".pets-#{@pet_1.id}" do
-      click_on "Favorites"
+      click_on "Add To Favorites"
     end
   end
 
@@ -66,7 +66,7 @@ RSpec.describe "favorite index page" do
     visit "/pets/#{@pet_2.id}"
 
     within ".pets-#{@pet_2.id}" do
-      click_on "Favorites"
+      click_on "Add To Favorites"
     end
 
     visit '/applications/new'

@@ -7,10 +7,11 @@ class ApplicationsController < ApplicationController
   def create
     pets = Pet.where(id: applications_params[:pet_ids])
     Pet.transaction do
-      pets.each do |pet|
+
         application = Application.new(
           applications_params.except(:pet_ids)
         )
+      pets.each do |pet|
         pet.applications << application
       #  session[:favorite].delete(pet.id.to_s)
       end
@@ -19,6 +20,10 @@ class ApplicationsController < ApplicationController
   rescue StandardError => e
     flash[:notice] = e.message
     redirect_to "/applications/new"
+  end
+
+  def show
+    @application = Application.find(params[:id])
   end
 
   private

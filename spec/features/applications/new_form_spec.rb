@@ -50,6 +50,7 @@ RSpec.describe 'As a visitor' do
 
         expect(page).to have_content(@pet_1.name)
         expect(page).to have_content(@pet_2.name)
+
         within ".pets-#{@pet_1.id}" do
           check "pet_ids[]"
         end
