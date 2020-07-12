@@ -8,5 +8,7 @@
     <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
     <br>
     <img src="<%= pet.image %>"</img>
+    <br>
+    <%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %>
   <% end %>
 </section>
