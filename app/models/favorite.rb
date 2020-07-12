@@ -28,4 +28,8 @@ class Favorite
       add_pet(id)
     end
   end
+
+  def remove_pet(id)
+    @contents.delete(id.to_s)
+  end
 end
