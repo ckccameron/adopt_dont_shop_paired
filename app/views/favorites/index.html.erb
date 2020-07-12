@@ -4,6 +4,9 @@
 <%= link_to 'Apply to Adopt', "/applications/new" %>
 
 <section class="show">
+  <% if favorite.favorite_pets.empty? %>
+    Add Pets To Your Favorites To See Them Here
+  <% end %>
   <% favorite.favorite_pets.each do |pet| %>
     <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
     <br>
