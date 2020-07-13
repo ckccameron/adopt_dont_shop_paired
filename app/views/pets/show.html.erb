@@ -21,3 +21,5 @@
 <p>Gender:<%= @pet.sex %></p>
 <br>
 <p>Adoptable?:<%= @pet.adoption_status %></p>
+<br>
+<%= link_to "View all applications for #{@pet.name}", "/pets/#{@pet.id}/applications" %>
