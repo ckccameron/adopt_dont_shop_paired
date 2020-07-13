@@ -29,10 +29,12 @@ RSpec.describe "application show page" do
 
     visit "/applications/#{application_1.id}"
 
-    click_on "Approve Application"
+    within ".pets-#{pet_1.id}" do
+      click_on "Approve Adoption"
+    end
 
     expect(current_path).to eq("/pets/#{pet_1.id}")
-    expect(page).to have_content("pending")
+    expect(page).to have_content("Pending")
     expect(page).to have_content("On hold for John")
   end
 end
