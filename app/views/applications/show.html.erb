@@ -1,0 +1,20 @@
+<h1>Application Show Page</h1>
+
+<p>
+ <ul>
+   <li> Name: <%= @application.name %></li>
+   <li> Address: <%= @application.address %></li>
+   <li> City: <%= @application.city %></li>
+   <li> State: <%= @application.state %></li>
+   <li> Zip: <%= @application.zip %></li>
+   <li> Phone Number: <%= @application.phone_number %></li>
+   <li> Description: <%= @application.description %></li>
+ </ul>
+</p>
+
+<p>Pets Under this Application:</p>
+<% pet_app_array = PetApplication.where(application_id: @application.id) %>
+<% pet_app_array.each do |pet_app| %>
+  <% pet = Pet.find(pet_app.pet_id) %>
+  <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br>
+<% end %>

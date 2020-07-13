@@ -50,6 +50,7 @@ RSpec.describe 'As a visitor' do
 
         expect(page).to have_content(@pet_1.name)
         expect(page).to have_content(@pet_2.name)
+
         within ".pets-#{@pet_1.id}" do
           check "pet_ids[]"
         end
@@ -75,7 +76,10 @@ RSpec.describe 'As a visitor' do
         end.to change(Application, :count).and(change(PetApplication, :count))
 
         expect(page.current_path).to eq('/favorites')
-        expect(page).to_not have_content(@pet_1.name)
+
+        within '.show' do
+          expect(page).to_not have_content(@pet_1.name)
+        end
 
       end
 

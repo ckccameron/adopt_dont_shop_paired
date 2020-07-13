@@ -11,11 +11,23 @@
   <% if favorite.favorite_pets.empty? %>
     Add Pets To Your Favorites To See Them Here
   <% end %>
-  <% favorite.favorite_pets.each do |pet| %>
-    <%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
-    <br>
-    <img src="<%= pet.image %>"</img>
-    <br>
-    <%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %>
+<h3>Your Favorites</h3>
+  <% @pets.each do |pet| %>
+    <% if pet.applications.empty? %>
+       <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br>
+       <img src="<%= pet.image %>"</img>
+       <br>
+       <%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %>
+    <% end %>
+ <% end %>
+
+</section>
+<br><br>
+<section class="applied_for">
+  <h3>Favorites...with an application!</h3>
+  <% @pets.each do |pet| %>
+    <% unless pet.applications.empty? %>
+      <%= link_to "#{pet.name}", "/pets/#{pet.id}" %>
+    <% end %>
   <% end %>
 </section>
