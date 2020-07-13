@@ -39,6 +39,9 @@ RSpec.describe 'As a visitor' do
 
         visit '/favorites'
         click_on "Apply to Adopt"
+      end
+
+      it 'shows the names of all applicants for that pet, with a link to the each application show page' do
 
         within '.application_id' do
           within ".pets-#{@pet_1.id}" do
@@ -70,9 +73,6 @@ RSpec.describe 'As a visitor' do
           fill_in :description, with: 'Animals are the best.'
           click_button 'Submit Application'
         end
-      end
-
-      it 'shows the names of all applicants for that pet, with a link to the each application show page' do
 
         visit "/pets/#{@pet_1.id}"
         click_on "View all applications for #{@pet_1.name}"
@@ -82,10 +82,7 @@ RSpec.describe 'As a visitor' do
         page.has_link?("Anthony")
         click_on "John"
         expect(current_path).to eq("/applications/#{@pet_1.applications.first.id}")
-
-
       end
-
     end
   end
 end
