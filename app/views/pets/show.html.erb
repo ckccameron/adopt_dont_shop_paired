@@ -22,6 +22,9 @@
 <br>
 <p>Adoptable?:<%= @pet.adoption_status %></p>
 <br>
+
+<%= link_to "View all applications for #{@pet.name}", "/pets/#{@pet.id}/applications" %>
+
 <p>Adoption Status:<%= @pet.adoption %></p>
 
 <% if @pet.adoption == "Pending" %>
