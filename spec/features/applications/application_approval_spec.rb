@@ -109,12 +109,7 @@ RSpec.describe "application show page" do
     expect(page).to have_content("On hold for John")
   end
 
-<<<<<<< HEAD
-  it 'the shelter cannot be deleted if it has an animal with a pending application' do
-
-=======
   it "only allows pet to have one approved application on them" do
->>>>>>> 0ce8ae39092cb3b14652d428ee309ad24eca56c3
     shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                         address: "3301 Navajo Street",
                         city: "Denver",
@@ -125,24 +120,9 @@ RSpec.describe "application show page" do
                         approximate_age: 3,
                         sex: "Female",
                         image: "https://imgur.com/r/puppies/cYqJGNo",
-                        adoption_status: "Available",
+                        adoption_status: true,
                         shelter_id: shelter_1.id)
 
-<<<<<<< HEAD
-    pet_2 =  Pet.create(name: "Sir Maximus",
-                      approximate_age: 1,
-                      sex: "Male",
-                      image: "https://imgur.com/r/puppies/JGDU9mi",
-                      adoption_status: true,
-                      shelter_id: shelter_1.id)
-
-    pet_3 =  Pet.create(name: "Benny",
-                      approximate_age: 5,
-                      sex: "Male",
-                      image: "https://imgur.com/r/puppies/JGDU9mi",
-                      adoption_status: true,
-                      shelter_id: shelter_1.id)
-=======
     application_1 = Application.create(name: "John",
                                       address: "1050 Blake St",
                                       city: "Denver",
@@ -192,7 +172,6 @@ RSpec.describe "application show page" do
                         image: "https://imgur.com/r/puppies/cYqJGNo",
                         adoption_status: true,
                         shelter_id: shelter_1.id)
->>>>>>> 0ce8ae39092cb3b14652d428ee309ad24eca56c3
 
     application_1 = Application.create(name: "John",
                                       address: "1050 Blake St",
@@ -202,20 +181,6 @@ RSpec.describe "application show page" do
                                       phone_number: "3037179808",
                                       description: "I love animals")
 
-<<<<<<< HEAD
-    PetApplication.create(pet_id: pet_1.id, application_id: application_1.id, status: true)
-
-    PetApplication.create(pet_id: pet_2.id, application_id: application_1.id)
-
-    PetApplication.create(pet_id: pet_3.id, application_id: application_1.id)
-
-    visit "/shelters"
-    click_on "Delete #{shelter_1.name}"
-    expect(page).to have_content("#{shelter_1.name} cannot be deleted while applications are approved.")
-
-
-
-=======
     PetApplication.create(pet_id: pet_1.id, application_id: application_1.id)
 
     visit "/applications/#{application_1.id}"
@@ -242,6 +207,5 @@ RSpec.describe "application show page" do
     expect(page).to have_content("Adoptable")
     expect(page).not_to have_content("Pending")
     expect(page).not_to have_content("On hold for John")
->>>>>>> 0ce8ae39092cb3b14652d428ee309ad24eca56c3
   end
 end

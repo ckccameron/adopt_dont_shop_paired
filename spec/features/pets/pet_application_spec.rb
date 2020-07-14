@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
   describe 'When I visit the pets show page' do
     describe 'there is a link to "View All Applications For This Pet"' do
-
       before :each do
         @shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                             address: "3301 Navajo Street",
@@ -41,12 +40,8 @@ RSpec.describe 'As a visitor' do
         click_on "Apply to Adopt"
       end
 
-<<<<<<< HEAD
-      xit 'shows the names of all applicants for that pet, with a link to the each application show page' do
-=======
-      it 'shows the names of all applicants for that pet, with a link to the each application show page' do
->>>>>>> 0ce8ae39092cb3b14652d428ee309ad24eca56c3
 
+      xit 'shows the names of all applicants for that pet, with a link to the each application show page' do
         within '.application_id' do
           within ".pets-#{@pet_1.id}" do
             check "pet_ids[]"
