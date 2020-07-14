@@ -41,7 +41,11 @@ RSpec.describe 'As a visitor' do
         click_on "Apply to Adopt"
       end
 
+<<<<<<< HEAD
       xit 'shows the names of all applicants for that pet, with a link to the each application show page' do
+=======
+      it 'shows the names of all applicants for that pet, with a link to the each application show page' do
+>>>>>>> 0ce8ae39092cb3b14652d428ee309ad24eca56c3
 
         within '.application_id' do
           within ".pets-#{@pet_1.id}" do
