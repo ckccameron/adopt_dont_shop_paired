@@ -27,11 +27,22 @@ class SheltersController < ApplicationController
   end
 
   def destroy
-    Shelter.destroy(params[:id])
-    redirect_to '/shelters'
+    shelter = Shelter.find(params[:id])
+    arr = []
+    shelter.pets.each do |pet|
+      list = PetApplication.where("pet_id = ?", pet.id).where("status = ?", true)
+      unless list.empty?
+        arr << list
+      end
+    end
+    if arr.empty?
+      Shelter.destroy(params[:id])
+      redirect_to '/shelters'
+    else
+      flash[:notice] = "#{shelter.name} cannot be deleted while applications are approved."
+      redirect_to "/shelters"
+    end
   end
-
-
 
   private
 
