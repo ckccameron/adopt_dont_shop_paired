@@ -24,7 +24,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(shelter_1.name)
     end
 
-  it 'if a shelter has pets (of which none are approved for adoption), then all pets will be deleted if the shelter is deleted' do
+  it 'if a shelter has pets (of which none are approved for adoption), then all pets AND all reviews will be deleted if the shelter is deleted' do
 
     shelter_1 =  Shelter.create!(name: "Denver Animal Shelter",
                       address: "3301 Navajo Street",
@@ -58,6 +58,13 @@ RSpec.describe 'As a visitor' do
                       adoption_status: "Available",
                       shelter_id: shelter_1.id)
 
+    review_1 = Review.create!(title: "Great Shelter",
+                      rating: 4,
+                      content: "All the pets looked really happy",
+                      shelter_id: shelter_1.id)
+
+      visit "/shelters/#{shelter_1.id}"
+      expect(page).to have_content(shelter_1.name)
       visit '/shelters'
       expect(page).to have_content(shelter_1.name)
       click_on "Delete #{shelter_1.name}"

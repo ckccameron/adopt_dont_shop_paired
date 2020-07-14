@@ -110,7 +110,7 @@ RSpec.describe "application show page" do
     expect(page).to have_content("On hold for John")
   end
 
-  it 'the shelter of any animal with a pending application cannot be deleted' do
+  it 'the shelter cannot be deleted if it has an animal with a pending application' do
 
     shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                         address: "3301 Navajo Street",
