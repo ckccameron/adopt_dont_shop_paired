@@ -141,7 +141,7 @@ RSpec.describe "application show page" do
                                       description: "I enjoy going on walks and I'd bring my new friend with me all the time")
 
     PetApplication.create(pet_id: pet_1.id, application_id: application_1.id)
-    PetApplication.create(pet_id: pet_1.id, application_id: application2.id)
+    PetApplication.create(pet_id: pet_1.id, application_id: application_2.id)
 
     visit "/applications/#{application_1.id}"
 
