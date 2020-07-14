@@ -1,10 +1,7 @@
 <h1>Check Out Your Favorite Pets</h1>
-<%= link_to "Return to Pets Index", "/pets" %>
-<br>
-<%= link_to "Return to Shelters Index", "/shelters" %>
-<br>
-<%= link_to "Apply to Adopt", "/applications/new" %>
-<br>
+<%= link_to "Return to Pets Index", "/pets" %><br>
+<%= link_to "Return to Shelters Index", "/shelters" %><br>
+<%= link_to "Apply to Adopt", "/applications/new" %><br>
 <%= link_to "Remove All Favorites", "/favorites", method: :delete %>
 
 <section class="show">
@@ -14,10 +11,9 @@
 <h3>Your Favorites</h3>
   <% @pets.each do |pet| %>
     <% if pet.applications.empty? %>
-       <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br>
-       <img src="<%= pet.image %>"</img>
-       <br>
-       <%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %>
+     <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br>
+     <img src="<%= pet.image %>"</img><br>
+     <%= button_to "Remove Favorite", "/favorites/#{pet.id}", method: :delete %>
     <% end %>
  <% end %>
 

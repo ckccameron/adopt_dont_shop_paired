@@ -10,10 +10,7 @@
   Description: <%= pet.description %> <br>
   Adoptable? <%= pet.adoption_status %> </p>
 
-  <%= link_to "Update #{pet.name}", "/pets/#{pet.id}/edit" %>
-  <br>
-  <%= link_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %>
-  <br>
-<% end %>
-  <br>
+  <%= link_to "Update #{pet.name}", "/pets/#{pet.id}/edit" %><br>
+  <%= link_to "Delete #{pet.name}", "/pets/#{pet.id}", method: :delete %><br>
+<% end %><br>
 <%= link_to "Create Pet", "/shelters/#{@shelter_identifier.id}/pets/new", {:shelterid => @shelter_identifier.id} %>

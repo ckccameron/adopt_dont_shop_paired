@@ -25,7 +25,6 @@ RSpec.describe "application show page" do
 
     PetApplication.create(pet_id: pet_1.id, application_id: application_1.id)
 
-
     visit "/applications/#{application_1.id}"
 
     within ".pets-#{pet_1.id}" do
@@ -156,10 +155,8 @@ RSpec.describe "application show page" do
     visit "/shelters"
     click_on "Delete #{shelter_1.name}"
     expect(page).to have_content("#{shelter_1.name} cannot be deleted while applications are approved.")
+
+
+
   end
 end
-
-# As a visitor
-# When an application is made for more than one pet
-# When I visit that applications show page
-# I'm able to approve the application for any number of pets

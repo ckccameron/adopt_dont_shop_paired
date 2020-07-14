@@ -3017,3 +3017,37 @@ Processing by SheltersController#show as HTML
 Completed 200 OK in 85ms (Views: 67.1ms | ActiveRecord: 10.6ms)
 
 
+Started GET "/" for ::1 at 2020-07-14 15:55:49 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/litowhite/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/litowhite/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.1.7/lib/rails/templates/rails/welcome/index.html.erb (8.1ms)
+Completed 200 OK in 23ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/shelters" for ::1 at 2020-07-14 15:55:54 -0700
+Processing by SheltersController#index as HTML
+  Rendering shelters/index.html.erb within layouts/application
+  [1m[36mShelter Load (7.5ms)[0m  [1m[34mSELECT "shelters".* FROM "shelters"[0m
+  Rendered shelters/index.html.erb within layouts/application (67.7ms)
+Completed 200 OK in 140ms (Views: 96.4ms | ActiveRecord: 23.5ms)
+
+
+Started GET "/pets" for ::1 at 2020-07-14 15:55:57 -0700
+Processing by PetsController#index as HTML
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (7.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets"[0m
+  [1m[36mShelter Load (0.6ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Shelter Load (0.0ms)[0m  [1m[34mSELECT  "shelters".* FROM "shelters" WHERE "shelters"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered pets/index.html.erb within layouts/application (68.4ms)
+Completed 200 OK in 109ms (Views: 80.3ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/pets/2" for ::1 at 2020-07-14 15:56:00 -0700
+Processing by PetsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPet Load (1.4ms)[0m  [1m[34mSELECT  "pets".* FROM "pets" WHERE "pets"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering pets/show.html.erb within layouts/application
+  Rendered pets/show.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 36ms (Views: 29.9ms | ActiveRecord: 1.6ms)
+
+
