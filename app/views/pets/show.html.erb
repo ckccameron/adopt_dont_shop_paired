@@ -22,4 +22,11 @@
 <br>
 <p>Adoptable?:<%= @pet.adoption_status %></p>
 <br>
+
 <%= link_to "View all applications for #{@pet.name}", "/pets/#{@pet.id}/applications" %>
+
+<p>Adoption Status:<%= @pet.adoption %></p>
+
+<% if @pet.adoption == "Pending" %>
+  <p> On hold for <%= @pet.applications.find {|application| application.status == "Approved"}.name %></p>
+<% end %>
