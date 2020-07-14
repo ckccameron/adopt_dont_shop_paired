@@ -63,13 +63,10 @@ end
 
     expect(current_path).to eq("/shelters/#{shelter_1.id}/edit")
 
-    name = "LoHi Animal Shelter"
-    address = "3501 Pecos Street"
     city = 'Denver'
     state = 'CO'
     zip = 80206
-    # fill_in :name, with: name
-    # fill_in :address, with: address
+
     fill_in :city, with: city
     fill_in :state, with: state
     fill_in :zip, with: zip

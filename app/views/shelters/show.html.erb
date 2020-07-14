@@ -14,7 +14,13 @@ Zip: <%= @shelter.zip %><br>
 <%= link_to "Write a Review", "/shelters/#{@shelter.id}/reviews/new", {:shelterid => @shelter.id} %>
 <br>
 
-<h2>Reviews For <%= @shelter.name %></h2>
+<h3><%= @shelter.name %> Summary</h3>
+<p>Total Pets: <%= @shelter.total_pets %><br>
+  Average Review Rating: <%= @shelter.average_rating %><br>
+  Number of Applications: <%= @shelter.total_applications %>
+</p>
+
+<h3>Reviews For <%= @shelter.name %></h3>
   <% @shelter.reviews.each do |review| %>
   Title: <%= review.title %><br>
   Rating: <%= review.rating %><br>
