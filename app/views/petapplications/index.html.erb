@@ -1,9 +1,0 @@
-<h1>List of Applications for @pet.name</h1>
-
-<% if @pet.applications.empty? %>
-There are no applications for <%= @pet.name %>.
-<% end %>
-
-<% @pet.applications.each do |application| %>
-  <%= link_to "#{application.name}", "/applications/#{application.id}" %><br>
-<% end %>
