@@ -36,6 +36,10 @@ class SheltersController < ApplicationController
       end
     end
     if arr.empty?
+      shelter.pets.each do |pet|
+        PetApplication.where("pet_id = ?", pet.id).destroy_all
+        Pet.delete(pet.id)
+      end
       Shelter.destroy(params[:id])
       redirect_to '/shelters'
     else
