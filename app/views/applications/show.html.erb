@@ -12,9 +12,11 @@
  </ul>
 </p>
 
-<p>Pets Under this Application:</p>
-<% pet_app_array = PetApplication.where(application_id: @application.id) %>
-<% pet_app_array.each do |pet_app| %>
-  <% pet = Pet.find(pet_app.pet_id) %>
-  <%= link_to "#{pet.name}", "/pets/#{pet.id}" %><br>
+<h2>Pets Under This Application:</h2>
+<% @application.pets.map do |pet| %>
+<section class="pets-<%=pet.id%>">
+
+<%= link_to "#{pet.name}", "/pets/#{pet.id}"%>
+<%= link_to "Approve Adoption", "/pets/#{pet.id}/applications/#{@application.id}", method: :patch %>
+</section>
 <% end %>
