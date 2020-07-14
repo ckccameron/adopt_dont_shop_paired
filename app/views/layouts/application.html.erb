@@ -17,8 +17,14 @@
       </ul>
     </nav>
 
-    <% flash.each do |type, message| %>
-      <p><%= message %></p>
+    <% flash.each do |type, messages| %>
+      <% if messages.is_a?(Array) %>
+        <% messages.each do |message| %>
+          <p><%= message %></p>
+        <% end %>
+      <% else %>
+        <p><%= messages %></p>
+      <% end %>
     <% end %>
 
     <%= yield %>

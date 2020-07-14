@@ -2,7 +2,8 @@
 <br>
 <p><%= button_to("Favorites", "/favorites", method: :get) %></p>
 
-<h1><%= @pet.name %></h1>
+<h1><%= link_to "#{@pet.name}", "/pets/#{@pet.id}" %></h1>
+
 
 <div class="pets">
 <section class="pets-<%= @pet.id %>">
@@ -10,14 +11,15 @@
   <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
   <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
 </section>
-</div>
-<br>
-<p><img src="<%= @pet.image %>" width='30%' alt="<%= @pet.name %>"></p>
-<br>
-<p>Description:<%= @pet.description %></p>
-<br>
-<p>Age:<%= @pet.approximate_age %></p>
-<br>
-<p>Gender:<%= @pet.sex %></p>
-<br>
+</div><br>
+<p><img src="<%= @pet.image %>" width='30%' alt="<%= @pet.name %>"></p><br>
+<p>Description:<%= @pet.description %></p><br>
+<p>Age:<%= @pet.approximate_age %></p><br>
+<p>Gender:<%= @pet.sex %></p><br>
 <p>Adoptable?:<%= @pet.adoption_status %></p>
+<br>
+<p>Adoption Status:<%= @pet.adoption %></p>
+
+<% if @pet.adoption == "Pending" %>
+  <p> On hold for <%= @pet.applications.find {|application| application.status == "Approved"}.name %></p>
+<% end %>
