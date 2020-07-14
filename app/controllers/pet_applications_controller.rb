@@ -7,8 +7,8 @@ class PetApplicationsController < ApplicationController
       redirect_to "/pets/#{pet.id}"
     else
       pet.adoption = "Pending"
-      application.status = "Approved"
       pet.save
+      application.status = "Approved"
       application.save
       redirect_to "/pets/#{pet.id}"
     end
