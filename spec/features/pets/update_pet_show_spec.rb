@@ -37,9 +37,9 @@ RSpec.describe 'As a visitor' do
         click_on "Update Winnie"
         expect(current_path).to eq("/pets/#{pet_1.id}/edit")
         fill_in :name, with: "Winnie the Poo"
-        # fill_in :image, with: "https://imgur.com/r/puppies/NkpLnVJ"
-        # fill_in :description, with: "The cutest!"
-        # fill_in :approximate_age, with: 2
+        fill_in :image, with: "https://imgur.com/r/puppies/NkpLnVJ"
+        fill_in :description, with: "The cutest!"
+        fill_in :approximate_age, with: 2
         select "Male"
         click_on "Update Pet"
 
