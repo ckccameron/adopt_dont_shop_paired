@@ -1,5 +1,3 @@
-#edit shelter from index page
-
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
@@ -46,7 +44,6 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(zip)
     end
   end
-end
 
   it 'If one or more fields are missing, the attempt to update the shelter information will return a flash message indicating which fields are missing' do
 
@@ -76,8 +73,5 @@ end
     expect(current_path).to eq("/shelters/#{shelter_1.id}")
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content("Address can't be blank")
-
   end
-
-
 end

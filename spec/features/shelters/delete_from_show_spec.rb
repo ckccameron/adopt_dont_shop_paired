@@ -1,5 +1,3 @@
-#shelter delete from show page
-
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do

@@ -27,10 +27,9 @@ RSpec.describe 'As a visitor' do
       expect(current_path).to eq('/shelters')
       expect(page).to have_content(name)
       expect(page).to_not have_content(address)
-
       end
     end
-  end
+
 
       it 'if one or more fields are not filled out, then a flash message will notify me about which fields need to be filled out' do
 
@@ -56,6 +55,6 @@ RSpec.describe 'As a visitor' do
       expect(current_path).to eq('/shelters')
       expect(page).to have_content("Name can't be blank")
       expect(page).to have_content("Address can't be blank")
-
-      end
+    end
+  end
 end
