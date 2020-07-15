@@ -5,7 +5,6 @@ class PetApplicationsController < ApplicationController
 
   def update
     pet = Pet.find(params[:pet_id])
-    # pet_app = PetApplication.find_by(pet_id: params[:pet_id], application_id: params[:application_id])
     application = Application.find(params[:application_id])
     if pet.adoption == "Pending"
       flash[:notice] = "No more applications can be approved for #{pet.name} at this time"

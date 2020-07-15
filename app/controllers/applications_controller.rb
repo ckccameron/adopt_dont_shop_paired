@@ -8,12 +8,11 @@ class ApplicationsController < ApplicationController
     pets = Pet.where(id: applications_params[:pet_ids])
     Pet.transaction do
 
-        application = Application.new(
-          applications_params.except(:pet_ids)
-        )
+      application = Application.new(
+        applications_params.except(:pet_ids)
+      )
       pets.each do |pet|
         pet.applications << application
-      #  session[:favorite].delete(pet.id.to_s)
       end
     end
     redirect_to "/favorites", notice: 'Application created succesfully'
@@ -31,5 +30,4 @@ class ApplicationsController < ApplicationController
   def applications_params
     params.permit(:name, :address, :city, :state, :zip, :phone_number, :description, pet_ids: [])
   end
-
 end
