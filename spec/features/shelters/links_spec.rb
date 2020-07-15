@@ -1,5 +1,3 @@
-#shelter links spec
-
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
@@ -140,6 +138,5 @@ RSpec.describe 'As a visitor' do
       click_on "List of Shelters"
       expect(current_path).to eq("/shelters")
     end
-
   end
 end

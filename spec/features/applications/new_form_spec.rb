@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
   describe 'when I visit my favorites page' do
     describe 'I see a link for adopting my favorite pets' do
-
       before :each do
         @shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                             address: "3301 Navajo Street",
@@ -37,8 +36,6 @@ RSpec.describe 'As a visitor' do
           click_on "Add To Favorites"
         end
       end
-
-
 
       it 'that takes me to a new application form' do
 
@@ -80,7 +77,6 @@ RSpec.describe 'As a visitor' do
         within '.show' do
           expect(page).to_not have_content(@pet_1.name)
         end
-
       end
 
       it 'if not all fields are filled out in the application, I am redirected back to the application page' do
@@ -103,7 +99,6 @@ RSpec.describe 'As a visitor' do
         end.to_not change { Application.count }
 
         expect(page.current_path).to eq('/applications/new')
-
       end
     end
   end

@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
   describe 'when I visit an application show page' do
-
     before :each do
       @shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                           address: "3301 Navajo Street",
@@ -72,6 +71,5 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(@pet_1.name)
       page.has_link?(@pet_1.name)
     end
-
-end
+  end
 end

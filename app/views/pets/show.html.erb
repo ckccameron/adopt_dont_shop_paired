@@ -8,8 +8,10 @@
 <div class="pets">
 <section class="pets-<%= @pet.id %>">
   <%= link_to "Add To Favorites", "/favorites/#{@pet.id}", method: :patch %>
-  <%= link_to "Update Pet", "/pets/#{@pet.id}/edit" %>
-  <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+  <%= link_to "Update #{@pet.name}", "/pets/#{@pet.id}/edit" %>
+  <% unless @pet.adoption == "Pending" %>
+    <%= link_to "Delete Pet", "/pets/#{@pet.id}", method: :delete %>
+  <% end %>
 </section>
 </div><br>
 <p><img src="<%= @pet.image %>" width='30%' alt="<%= @pet.name %>"></p><br>

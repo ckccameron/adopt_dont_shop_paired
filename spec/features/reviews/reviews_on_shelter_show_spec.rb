@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe 'As a visitor' do
   describe 'when I visit the shelter show page' do
     it 'shows a list of all reviews for that shelter' do
-
       shelter_1 = Shelter.create!(name: "Denver Animal Shelter",
                         address: "3301 Navajo Street",
                         city: "Denver",

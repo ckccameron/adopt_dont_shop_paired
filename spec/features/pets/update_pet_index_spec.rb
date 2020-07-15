@@ -1,12 +1,9 @@
-#pet update spec - index
-
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
   describe 'when I visit the pet index page' do
     describe 'I can follow a link to update a pet' do
       it 'then takes me to a form to edit the information' do
-
         shelter_1 =  Shelter.create!(name: "Denver Animal Shelter",
                           address: "3301 Navajo Street",
                           city: "Denver",
@@ -50,6 +47,7 @@ RSpec.describe 'As a visitor' do
       end
     end
   end
+
   describe 'when I visit the shelter pet index page' do
     describe 'I can follow a link to update a pet' do
       it 'then takes me to a form to edit the information' do
@@ -94,6 +92,36 @@ RSpec.describe 'As a visitor' do
         expect(page).to have_content("Winnie the Poo")
         expect(page).to have_content("Male")
         expect(page).to_not have_content("Female")
+      end
+
+      it "shows flash message indicating specific text field that user didn't fill in" do
+        shelter_1 =  Shelter.create!(name: "Denver Animal Shelter",
+                          address: "3301 Navajo Street",
+                          city: "Denver",
+                          state: "CO",
+                          zip: 80021)
+
+        pet_1 =  Pet.create!(name: "Tom",
+                            approximate_age: 3,
+                            sex: "Female",
+                            image: "https://imgur.com/r/puppies/cYqJGNo",
+                            adoption_status: "Available",
+                            description: "Simply the best",
+                            shelter_id: shelter_1.id)
+
+        visit "/shelters/#{shelter_1.id}/pets"
+
+        click_on "Update Tom"
+
+        fill_in :name, with: ""
+        fill_in :image, with: "https://imgur.com/r/puppies/cYqJGNo"
+        fill_in :description, with: "Simply the best"
+        fill_in :approximate_age, with: 3
+        select "Female"
+        click_on "Update Pet"
+
+        expect(current_path).to eq("/pets/#{pet_1.id}/edit")
+        expect(page).to have_content("Name can't be blank")
       end
     end
   end

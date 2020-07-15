@@ -48,7 +48,27 @@ RSpec.describe 'As a visitor' do
         expect(page).to have_content("Birdie")
         expect(page).to have_content("Tom")
         expect(page).to_not have_content("Sir Maximums")
+      end
+
+      it "shows flash message indicating specific text field that user didn't fill in" do
+        shelter_1 =  Shelter.create!(name: "Denver Animal Shelter",
+                          address: "3301 Navajo Street",
+                          city: "Denver",
+                          state: "CO",
+                          zip: 80021)
+
+        visit "/shelters/#{shelter_1.id}/pets/new"
+
+        fill_in :name, with: ""
+        fill_in :image, with: "https://imgur.com/r/puppies/NkpLnVJ"
+        fill_in :description, with: ""
+        fill_in :approximate_age, with: 2
+        select "Female"
+        click_on "Create Pet"
+
+        expect(current_path).to eq("/shelters/#{shelter_1.id}/pets/new")
+        expect(page).to have_content("Please fill in name, description to create a pet")
+      end
     end
   end
-end
 end

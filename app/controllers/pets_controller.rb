@@ -19,8 +19,15 @@ class PetsController < ApplicationController
   end
 
   def create
-    new_pet = Pet.create(pet_params)
-    redirect_to("/shelters/#{new_pet.shelter_id}/pets")
+    unfilled_params = pet_params.select{|param, value| value.empty?}
+    shelter = Shelter.find(params[:shelter_id])
+    if !unfilled_params.empty?
+      flash[:notice] = "Please fill in #{unfilled_params.keys.join(", ")} to create a pet"
+      redirect_back(fallback_location: "/shelters/#{shelter.id}/pets/new")
+    else
+      shelter.pets.create(pet_params)
+      redirect_to("/shelters/#{shelter.id}/pets")
+    end
   end
 
   def edit
@@ -28,20 +35,27 @@ class PetsController < ApplicationController
   end
 
   def update
-      pet = Pet.find(params[:id])
-      pet.update!(pet_params)
+    pet = Pet.find(params[:id])
+    pet.update(pet_params)
+    if pet.save
       redirect_to "/pets/#{pet.id}"
+    else
+      flash[:notice] = pet.errors.full_messages
+      redirect_back(fallback_location: "/pets/#{pet.id}/edit")
+    end
   end
 
   def destroy
-    Pet.destroy(params[:id])
-    redirect_to "/pets"
+    pet = Pet.find(params[:id])
+    if pet.adoption_status == true
+      favorite.remove_pet(pet.id)
+      Pet.destroy(params[:id])
+      redirect_to "/pets"
+    end
   end
 
-
-
-
   private
+
   def pet_params
     params.permit(:name, :image, :description, :approximate_age, :sex, :shelter_id)
   end
