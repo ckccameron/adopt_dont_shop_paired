@@ -10,12 +10,11 @@ Zip: <%= @shelter.zip %><br>
 <%= link_to "Update Shelter", "/shelters/#{@shelter.id}/edit" %>
 <br>
 
-<% cond = @shelter.pets.any? do |pet| %>
+<% unless @shelter.pets.any do |pet| %>
   <% pet.adoption == "Pending" %>
+  <%= link_to "Delete #{@shelter.name}", "/shelters/#{@shelter.id}", method: :delete %>
 <% end %>
-  <% if cond == false %>
-    <%= link_to "Delete #{@shelter.name}", "/shelters/#{@shelter.id}", method: :delete %>
-  <% end %>
+
 
 
 <br>
