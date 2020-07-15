@@ -19,8 +19,15 @@ class PetsController < ApplicationController
   end
 
   def create
-    new_pet = Pet.create(pet_params)
-    redirect_to("/shelters/#{new_pet.shelter_id}/pets")
+    unfilled_params = pet_params.select{|param, value| value.empty?}
+    shelter = Shelter.find(params[:shelter_id])
+    if !unfilled_params.empty?
+      flash[:notice] = "Please fill in #{unfilled_params.keys.join(", ")} to create a pet"
+      redirect_back(fallback_location: "/shelters/#{shelter.id}/pets/new")
+    else
+      shelter.pets.create(pet_params)
+      redirect_to("/shelters/#{shelter.id}/pets")
+    end
   end
 
   def edit
