@@ -158,7 +158,5 @@ RSpec.describe Shelter do
 
       expect(shelter_1.total_applications).to eq(2)
     end
-
-
   end
 end
