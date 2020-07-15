@@ -1,5 +1,3 @@
-#favorite index spec
-
 require 'rails_helper'
 
 RSpec.describe "favorite index page" do
@@ -87,9 +85,9 @@ RSpec.describe "favorite index page" do
     end
 
     expect(page.current_path).to eq('/favorites')
+
     within '.applied_for' do
       expect(page).to have_content(@pet_1.name)
     end
   end
-
-  end
+end
