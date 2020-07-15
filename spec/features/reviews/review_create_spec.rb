@@ -38,7 +38,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content("Nice Shelter")
       expect(page).to have_content("Nice shelter, all the pets looked happy")
       expect(page).to have_content(review_1.image)
-    end
+      end
     end
   end
 end
