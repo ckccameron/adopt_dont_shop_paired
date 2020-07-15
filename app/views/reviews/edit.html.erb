@@ -2,13 +2,16 @@
 
 <%= form_tag "/shelters/#{@review.shelter_id}/reviews/#{@review.id}", method: :patch do %>
  <%= label_tag :title %>
- <%= text_field_tag :title, nil, value: "#{@review.title}" %><br>
+ <%= text_field_tag :title, nil, value: "#{@review.title}" %>
+ <br>
  <%= label_tag :rating %>
- <%= select_tag :rating, options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5]]) %><br>
+ <%= select_tag :rating, options_for_select([[1,1],[2,2],[3,3],[4,4],[5,5]]) %>
+ <br>
  <%= label_tag :content %>
- <%= text_field_tag :content, nil, value: "#{@review.content}" %><br>
+ <%= text_field_tag :content, nil, value: "#{@review.content}" %>
+ <br>
  <%= label_tag :image %>
- <%= text_field_tag :image, nil, value: "#{@review.image}" %><br>
-
+ <%= text_field_tag :image, nil, value: "#{@review.image}" %>
+ <br>
  <%= submit_tag "Update Review" %>
  <% end %>
