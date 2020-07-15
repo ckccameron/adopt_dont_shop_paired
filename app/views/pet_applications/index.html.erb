@@ -1,11 +1,7 @@
 <h1>List of Applications for @pet.name</h1>
 
 <% if @pet.applications.empty? %>
-<<<<<<< HEAD
-There are no applications for <%= link_to "#{@pet.name}", "/pets/#{pet.id}" %>.
-=======
-There are no applications for <%= @pet.name %>.
->>>>>>> 0ce8ae39092cb3b14652d428ee309ad24eca56c3
+<p>There are no applications for <%= link_to "#{@pet.name}", "/pets/#{pet.id}" %></p>
 <% end %>
 
 <% @pet.applications.each do |application| %>
