@@ -35,9 +35,14 @@ class PetsController < ApplicationController
   end
 
   def update
-      pet = Pet.find(params[:id])
-      pet.update!(pet_params)
+    pet = Pet.find(params[:id])
+    pet.update(pet_params)
+    if pet.save
       redirect_to "/pets/#{pet.id}"
+    else
+      flash[:notice] = pet.errors.full_messages
+      redirect_back(fallback_location: "/pets/#{pet.id}/edit")
+    end
   end
 
   def destroy
