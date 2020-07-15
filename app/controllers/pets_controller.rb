@@ -38,10 +38,8 @@ class PetsController < ApplicationController
     redirect_to "/pets"
   end
 
-
-
-
   private
+
   def pet_params
     params.permit(:name, :image, :description, :approximate_age, :sex, :shelter_id)
   end
