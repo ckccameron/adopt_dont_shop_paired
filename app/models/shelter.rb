@@ -14,5 +14,4 @@ class Shelter < ApplicationRecord
   def total_applications
     pets.reduce(0) {|sum, pet_app| sum + pet_app.applications.count }
   end
-
 end
