@@ -34,7 +34,7 @@ RSpec.describe 'As a visitor' do
         expect(page).to have_content(pet_1.name)
         expect(page).to_not have_content(pet_2.name)
 
-        click_on 'Update Pet'
+        click_on "Update Winnie"
         expect(current_path).to eq("/pets/#{pet_1.id}/edit")
         fill_in :name, with: "Winnie the Poo"
         # fill_in :image, with: "https://imgur.com/r/puppies/NkpLnVJ"
@@ -66,7 +66,7 @@ RSpec.describe 'As a visitor' do
 
         visit "/pets/#{pet_1.id}"
 
-        click_on "Update Pet"
+        click_on "Update Tom"
 
         fill_in :name, with: ""
         fill_in :image, with: "https://imgur.com/r/puppies/cYqJGNo"
