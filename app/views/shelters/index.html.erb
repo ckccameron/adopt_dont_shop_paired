@@ -6,7 +6,10 @@
   <h3><%= link_to("#{shelter.name}", "/shelters/#{shelter.id}") %></h3>
   <%= link_to "Edit #{shelter.name}", "/shelters/#{shelter.id}/edit" %>
   <br>
-  <%= link_to "Delete #{shelter.name}", "/shelters/#{shelter.id}", method: :delete %>
+  <% shelter.pets.any? do |pet| %>
+    <% pet.adoption == "Pending" %>
+    <%= link_to "Delete #{shelter.name}", "/shelters/#{shelter.id}", method: :delete %>
+  <% end %>
   <br><br>
 <% end %>
 <br>
