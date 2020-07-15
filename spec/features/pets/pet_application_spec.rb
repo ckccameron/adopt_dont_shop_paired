@@ -41,7 +41,7 @@ RSpec.describe 'As a visitor' do
       end
 
 
-      xit 'shows the names of all applicants for that pet, with a link to the each application show page' do
+      it 'shows the names of all applicants for that pet, with a link to the each application show page' do
         within '.application_id' do
           within ".pets-#{@pet_1.id}" do
             check "pet_ids[]"

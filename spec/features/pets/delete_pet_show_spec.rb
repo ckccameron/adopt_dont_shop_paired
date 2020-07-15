@@ -1,10 +1,7 @@
-# pet delete from show spec
-
 require 'rails_helper'
 
 RSpec.describe 'When I visit the pet show page' do
   it "I can delete a pet out of the system" do
-
     shelter_1 =  Shelter.create!(name: "Denver Animal Shelter",
                       address: "3301 Navajo Street",
                       city: "Denver",
@@ -23,6 +20,7 @@ RSpec.describe 'When I visit the pet show page' do
                       adoption_status: "Available",
                       description: "Simply the best",
                       shelter_id: shelter_1.id)
+
     pet_2 =  Pet.create!(name: "Sir Maximus",
                       approximate_age: 1,
                       sex: "Male",

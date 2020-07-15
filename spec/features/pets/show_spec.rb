@@ -28,9 +28,7 @@ RSpec.describe 'As a visitor' do
       expect(page).to have_content(pet_1.adoption_status)
       expect(page).to have_content(pet_1.sex)
       expect(page).to have_content(pet_1.approximate_age)
-    
+
     end
-
-
   end
 end

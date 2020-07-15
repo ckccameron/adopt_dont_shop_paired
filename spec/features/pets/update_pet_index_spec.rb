@@ -1,5 +1,3 @@
-#pet update spec - index
-
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
@@ -50,6 +48,7 @@ RSpec.describe 'As a visitor' do
       end
     end
   end
+  
   describe 'when I visit the shelter pet index page' do
     describe 'I can follow a link to update a pet' do
       it 'then takes me to a form to edit the information' do

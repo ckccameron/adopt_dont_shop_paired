@@ -48,7 +48,7 @@ RSpec.describe 'As a visitor' do
         expect(page).to have_content("Birdie")
         expect(page).to have_content("Tom")
         expect(page).to_not have_content("Sir Maximums")
+      end
     end
   end
-end
 end

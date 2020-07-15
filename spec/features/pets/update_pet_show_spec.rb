@@ -1,5 +1,3 @@
-#pet update spec - show 
-
 require 'rails_helper'
 
 RSpec.describe 'As a visitor' do
